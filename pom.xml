@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mazurov</groupId>
+    <artifactId>fgview</artifactId>
+    <version>1.0.0</version>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Flame Graph Viewer</description>
+    <url>https://github.com/OlegMazurov/FlameGraphViewer</url>
+
+    <developers>
+        <developer>
+            <name>Oleg Mazurov</name>
+            <email>oleg.v.mazurov@gmail.com</email>
+            <url>https://github.com/OlegMazurov</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/OlegMazurov/FlameGraphViewer.git</connection>
+        <developerConnection>scm:git:git://github.com:OlegMazurov/FlameGraphViewer.git</developerConnection>
+        <url>https://github.com/OlegMazurov/FlameGraphViewer/tree/master</url>
+    </scm>
+
+    <properties>
+        <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mazurov</groupId>
+            <artifactId>fxanalyzer</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <finalName>FlameGraphViewer</finalName>
+                    <shadedArtifactAttached>true</shadedArtifactAttached>
+                    <shadedClassifierName>project-classifier</shadedClassifierName>
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <manifestEntries>
+                                <Main-Class>org.mazurov.fxanalyzer.Runner</Main-Class>
+                                <Implementation-Vendor>(C) Oleg Mazurov, 2021</Implementation-Vendor>
+                                <Implementation-Title>${project.description}</Implementation-Title>
+                                <Implementation-Version>${maven.build.timestamp}</Implementation-Version>
+                            </manifestEntries>
+                        </transformer>
+                    </transformers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+
