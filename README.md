@@ -14,9 +14,10 @@ A standalone GUI application to provide enhanced uniform analysis of performance
 * Aggregate over a single method or an arbitrary stack trace fragment 
 * Flat view with exclusive (*self*) and inclusive (*cumulative*) metrics
 * Color a single method or a selected set of methods
+* Aggregate over threads, where available, and files
 * Filter in or out methods, stack trace fragments, threads, files
 * Move back and forth in history
-* Export the current view as a self-contained *flamegraph.svg*
+* Export the current view as a self-contained *flamegraph.svg* or as a data model *flamegraph.json*
 
 ## Rationale 
 
@@ -101,7 +102,7 @@ and the callee, if any, of its last occurrence. In the example above, *main* wil
 the callee, thus there will be no correlation between the choices. 
 
 If a single recursive method is selected in the *Flame* view, it may appear that its recursive nature is totally
-omitted from the presentation whether the bottom-up (*callees*) or the top-down (*callers) view is selected. It may be 
+omitted from the presentation whether the bottom-up (*callees*) or the top-down (*callers*) view is selected. It may be 
 easily revealed, however, by adding a caller or a callee to the selected fragment and switching to the opposite view.
 Any existing stack trace fragment can be selected and analyzed with a series of method selections and switching between 
 the callers and callees views, f.e. *(a -> a -> a)* or *(a -> b -> a -> b)*.

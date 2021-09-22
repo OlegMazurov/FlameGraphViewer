@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mazurov</groupId>
     <artifactId>fgview</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Flame Graph Viewer</description>
     <url>https://github.com/OlegMazurov/FlameGraphViewer</url>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.mazurov</groupId>
             <artifactId>fxanalyzer</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
